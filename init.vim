@@ -17,6 +17,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
 Plug 'fladson/vim-kitty'
 Plug 'tomasr/molokai'
+Plug 'pangloss/vim-javascript'
 
 call plug#end()
 
