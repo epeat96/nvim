@@ -27,8 +27,8 @@ call plug#end()
 "customization
 set number
 set autoindent
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set noshowmode
 set updatetime=100
