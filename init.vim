@@ -29,6 +29,13 @@ set shiftwidth=4
 set expandtab
 set noshowmode
 set updatetime=100
+
+"javascript folding
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
+
 "automatically start NERDTree with nvim
 autocmd VimEnter * NERDTree
 "automatically close when NERDTree is the las buffer
