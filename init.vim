@@ -36,13 +36,16 @@ augroup javascript_folding
     au FileType javascript setlocal foldmethod=syntax
 augroup END
 
+"NERDTree configuration
 "automatically start NERDTree with nvim
 autocmd VimEnter * NERDTree
 "automatically close when NERDTree is the las buffer
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 "disable NERDTree's help message
 let NERDTreeMinimalUI = 1
+
 "keyboard shortcuts
+
 "colorscheme
 set termguicolors
 colorscheme molokai
