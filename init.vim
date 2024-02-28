@@ -26,6 +26,7 @@ call plug#end()
 
 "customization
 set number
+set relativenumber
 set autoindent
 set tabstop=2
 set shiftwidth=2
@@ -120,6 +121,12 @@ function! LightLineFilename()
        \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
 endfunction
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+augroup END
 
 augroup AutoSyntastic
   autocmd!
