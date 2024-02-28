@@ -17,10 +17,11 @@ Plug 'Yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
 Plug 'fladson/vim-kitty'
 Plug 'tomasr/molokai'
-Plug 'pangloss/vim-javascript'
-Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'pangloss/vim-javascript'
+Plug 'sheerun/vim-polyglot'
+Plug 'ap/vim-css-color'
 
 call plug#end()
 
@@ -67,7 +68,7 @@ let g:lightline = {
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
-      \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \   'right': [ [ 'coc', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
       \ 'component_function': {
       \   'fugitive': 'LightLineFugitive',
@@ -77,12 +78,7 @@ let g:lightline = {
       \   'modified': 'LightLineModified',
       \   'readonly': 'LightLineReadonly',
       \   'fileformat': 'LightLineFileformat',
-      \ },
-      \ 'component_expand': {
-      \   'syntastic': 'SyntasticStatuslineFlag',
-      \ },
-      \ 'component_type': {
-      \   'syntastic': 'error',
+      \   'coc' : 'LightLineCoc'
       \ },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
@@ -128,14 +124,6 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 augroup END
 
-augroup AutoSyntastic
-  autocmd!
-  autocmd BufWritePost *.c,*.cpp,*.js,*.py call s:syntastic()
-augroup END
-function! s:syntastic()
-  SyntasticCheck
-  call lightline#update()
-endfunction
 "Atajos para Coc
 " Usa <Tab> y <S-Tab> para navegar a través de las sugerencias de autocompletado
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -144,7 +132,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Selecciona la sugerencia de autocompletado con <Enter>
 inoremap <expr> <CR>    pumvisible() ? coc#_select_confirm() : "\<CR>"
 
-let g:syntastic_javascript_checkers = ["eslint"]
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
