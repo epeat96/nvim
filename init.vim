@@ -136,6 +136,14 @@ function! s:syntastic()
   SyntasticCheck
   call lightline#update()
 endfunction
+"Atajos para Coc
+" Usa <Tab> y <S-Tab> para navegar a través de las sugerencias de autocompletado
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Selecciona la sugerencia de autocompletado con <Enter>
+inoremap <expr> <CR>    pumvisible() ? coc#_select_confirm() : "\<CR>"
+
 let g:syntastic_javascript_checkers = ["eslint"]
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
