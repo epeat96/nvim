@@ -22,6 +22,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'sheerun/vim-polyglot'
 Plug 'ap/vim-css-color'
+Plug 'aperezdc/vim-template'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -55,7 +57,7 @@ nmap <F2> :NERDTreeToggle<CR>
 
 "colorscheme
 set termguicolors
-colorscheme molokai
+colorscheme dracula
 let g:molokai_original = 1
 highlight! link SignColumn LineNr
 
@@ -64,7 +66,7 @@ let g:gitgutter_map_keys = 0
 
 "lightline configuration
 let g:lightline = {
-      \ 'colorscheme': 'molokai',
+      \ 'colorscheme': 'dracula',
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
@@ -135,3 +137,5 @@ inoremap <expr> <CR>    pumvisible() ? coc#_select_confirm() : "\<CR>"
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
+" Configuración para abrir NERDTree en el lado derecho
+let g:NERDTreeWinPos = "right"
