@@ -20,6 +20,7 @@ Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
+Plug 'preservim/vim-markdown'
 Plug 'sheerun/vim-polyglot'
 Plug 'ap/vim-css-color'
 Plug 'aperezdc/vim-template'
@@ -37,6 +38,7 @@ set expandtab
 set noshowmode
 set updatetime=100
 set guifont=Fira\ Code/11/-1/5/50/0/0/0/1/0
+set conceallevel=0
 
 "javascript folding
 augroup javascript_folding
